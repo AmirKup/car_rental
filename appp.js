@@ -26,6 +26,50 @@ filterSizeWrap.addEventListener('click', function() {
     filterSizes.classList.toggle('hidden');
 });
 
+$(".filterSizeWrap").click(function() {
+    $('.filterSizes').toggle();
+  });
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest(".filterSizeWrap").length) {
+      $('.filterSizes').hide();
+    }
+    e.stopPropagation();
+});
+
+
+let filterTrendings = document.querySelector('.filterTrendings');
+let filterTrendingWrap = document.querySelector('.filterTrendingWrap');
+filterTrendingWrap.addEventListener('click', function() {
+    filterTrendings.classList.toggle('hidden');
+});
+$(".filterTrendingWrap").click(function() {
+    $('.filterTrendings').toggle();
+  });
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest(".filterTrendingWrap").length) {
+      $('.filterTrendings').hide();
+    }
+    e.stopPropagation();
+});
+
+
+
+let filterPrices = document.querySelector('.filterPrices');
+let filterPriceWrap = document.querySelector('.filterPriceWrap');
+filterPriceWrap.addEventListener('click', function() {
+    filterPrices.classList.toggle('hidden');
+});
+
+$(".filterPriceWrap").click(function() {
+    $('.filterPrices').toggle();
+  });
+  $(document).on('click', function(e) {
+    if (!$(e.target).closest(".filterPriceWrap").length) {
+      $('.filterPrices').hide();
+    }
+    e.stopPropagation();
+});
+
 $(document).ready(function() {
 //скрыть PopUp корзины при загрузке страницы
     PopUpHide();
@@ -129,6 +173,8 @@ function generateCartView(itemsCart) {
         document.body.insertBefore(cartDiv, headerDiv);
         PopUpShow();
     }
+
+ 
 //функция генерации наполнения table корзины
     function generateCartTable(cart, cartTable) {
         let tableHTML = "";
@@ -142,3 +188,27 @@ function generateCartView(itemsCart) {
         cartTable.innerHTML = tableHTML;
         }
     }
+
+
+
+
+
+    
+$('body').append('<div class="upbtn"></div>');            
+$(window).scroll(function() {
+    if ($(this).scrollTop() > 100) {
+        $('.upbtn').css({
+            left: '0'
+        });
+        } else {
+        $('.upbtn').css({
+            left: '-100px'
+        });
+    }
+});
+$('.upbtn').on('click',function() {
+    $('html, body').animate({
+        scrollTop: 0
+    }, 500);
+    return false;
+}); 
