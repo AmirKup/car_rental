@@ -70,13 +70,14 @@ body {
     background: #f8f3f4;
     min-height: 148px;
 }
-.newArrivals h1 {
+.newArrivals h1 a{
     margin: 24px 0 32px;
     font-weight: normal;
     font-size: 39px;
     font-weight: bold;
     line-height: 29px;
     color: #f16d7f;
+    cursor: pointer;
 }
 @media (min-width: 768px) {
     .newArrivals h1 {
@@ -150,22 +151,64 @@ body {
     }
 }
 
-.filterTrending{
+
+.filterTrendingWrap{
+    cursor: pointer;
     display: inline;
     font-weight: 600;
     font-size: 13px;
     line-height: 17px;
     color: #000000;
-    cursor: pointer;
 }
 
-.filterPrice{
+.filterTrending{
+    position: relative;
+}
+.filterTrendings {
+    position: absolute;
+    left: 0;
+    top: 25px;
+    width: 179px;
+    height: 103px;
+    background: #ffffff;
+    box-shadow: 6px 4px 35px #ef5b70;
+    padding: 7px 9px;
+    box-sizing: border-box;
+    font-size: 19px;
+    color: #6f6e6e;
+}
+.filterTrendings>div:not(:last-child) {
+    margin-bottom: 4px;
+}
+
+
+.filterPriceWrap{
+    cursor: pointer;
     display: inline;
     font-weight: 600;
     font-size: 13px;
     line-height: 17px;
     color: #000000;
-    cursor: pointer;
+}
+
+.filterPrice {
+    position: relative;
+}
+.filterPrices {
+    position: absolute;
+    left: 0;
+    top: 25px;
+    width: 179px;
+    height: 103px;
+    background: #ffffff;
+    box-shadow: 6px 4px 35px #ef5b70;
+    padding: 7px 9px;
+    box-sizing: border-box;
+    font-size: 19px;
+    color: #6f6e6e;
+}
+.filterPrices>div:not(:last-child) {
+    margin-bottom: 4px;
 }
 
 .filtersRight {
@@ -304,7 +347,7 @@ margin-right: 15px;
     width: 179px;
     height: 103px;
     background: #ffffff;
-    box-shadow: 6px 4px 35px rgba(0, 0, 0, 0.21);
+    box-shadow: 6px 4px 35px #ef5b70;
     padding: 7px 9px;
     box-sizing: border-box;
     font-size: 19px;
@@ -717,4 +760,40 @@ td {
 }
 
 
-
+.upbtn {
+    z-index: 9999;
+    width: 100px;
+    height: 100%;
+    color: #FFF;
+    position: fixed;
+    top:0;
+    left:-100px;
+    cursor: pointer;
+    transition: all .7s ease-in-out;
+    background-color: #222224;
+}
+.upbtn:before {
+    content: "ВВЕРХ";
+    display:block;
+    position:absolute; 
+    text-align:center;
+    color: #FFF;
+    font-size:36px;
+    line-height:100px;
+    font-weight:bold;
+    height:100%;
+    vertical-align: center;
+    writing-mode:tb-rl;
+    transform: rotate(180deg);
+}
+.upbtn:after {
+    content: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIj8+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBoZWlnaHQ9IjMycHgiIHZpZXdCb3g9Ii0zOSAwIDM3NCAzNzQuMDAwNTkiIHdpZHRoPSIzMnB4Ij48cGF0aCBkPSJtMTI3IDI2OWg0MmM0LjQxNzk2OSAwIDgtMy41ODIwMzEgOC04di0xNTYuNjMyODEybDMyLjc0MjE4OCAzMC4zMzk4NDNjMy4yMzA0NjggMi45OTYwOTQgOC4yODEyNSAyLjgxMjUgMTEuMjg1MTU2LS40MTQwNjJsMjkuMTE3MTg3LTMxLjIyMjY1N2MxLjQ0OTIxOS0xLjU1NDY4NyAyLjIxODc1LTMuNjIxMDkzIDIuMTQ0NTMxLTUuNzQyMTg3LS4wNzQyMTgtMi4xMjEwOTQtLjk5MjE4Ny00LjEyNS0yLjU0Mjk2OC01LjU3NDIxOWwtOTYuMzM1OTM4LTg5LjYwOTM3NWMtMy4wNzAzMTItMi44NTkzNzUtNy44MjgxMjUtMi44NTkzNzUtMTAuOTAyMzQ0IDBsLTk2LjM1MTU2MiA4OS42MTMyODFjLTEuNTU4NTk0IDEuNDQ1MzEzLTIuNDcyNjU2IDMuNDUzMTI2LTIuNTQ2ODc1IDUuNTc4MTI2cy42OTkyMTkgNC4xOTE0MDYgMi4xNTIzNDQgNS43NDIxODdsMjkuMTk5MjE5IDMxLjIyNjU2M2MzLjAwNzgxMiAzLjIxNDg0MyA4LjA1MDc4MSAzLjM5NDUzMSAxMS4yODEyNS4zOTg0MzdsMzIuNzU3ODEyLTMwLjMzNTkzN3YxNTYuNjMyODEyYzAgNC40MTc5NjkgMy41ODIwMzEgOCA4IDh6bTAgMCIgZmlsbD0iI0ZGRkZGRiIvPjxwYXRoIGQ9Im04IDMxNmgyODBjNC40MTc5NjkgMCA4IDMuNTgyMDMxIDggOHY0MmMwIDQuNDE3OTY5LTMuNTgyMDMxIDgtOCA4aC0yODBjLTQuNDE3OTY5IDAtOC0zLjU4MjAzMS04LTh2LTQyYzAtNC40MTc5NjkgMy41ODIwMzEtOCA4LTh6bTAgMCIgZmlsbD0iI0ZGRkZGRiIvPjwvc3ZnPgo=);
+    display:block;
+    position:absolute; 
+    top:calc(50% - 120px);
+    width:100px;
+    text-align:center;        
+}
+.upbtn:hover {
+    background-color: #f16d7f;
+}
